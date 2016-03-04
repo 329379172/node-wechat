@@ -7,7 +7,7 @@ var config = {
     loginUrl: 'https://login.weixin.qq.com/cgi-bin/mmwebwx-bin/login?loginicon=true&r=' + ~Date.now() + '&_='
                 + Date.now() + '&',
     retryTimes: 5,
-    initUrl: 'https://wx2.qq.com/cgi-bin/mmwebwx-bin/webwxinit'
+    initUrl: 'https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxinit'
 };
 
 module.exports = config;

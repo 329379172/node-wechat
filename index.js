@@ -4,13 +4,14 @@
 'use strict';
 var Client = require('./lib/Client');
 var async = require('async');
+var log = require('./lib/log');
 
 async.forever((next) => {
     async.waterfall([
         (next) => {
             Client.qrcode((err) => {
                 if (err) return next(err);
-                console.log(Client.qrcodeImage);
+                log.info('二维码地址:'　+　Client.qrcodeImage);
                 next();
             });
         },
@@ -23,9 +24,8 @@ async.forever((next) => {
         },
         (next) => {
             Client.cookie((err) => {
-                console.log(err);
                 if (err) return next(err);
-                console.log('登录成功');
+                log.info('登录成功,开始初始化程序...');
                 next();
             });
         },
@@ -33,7 +33,7 @@ async.forever((next) => {
             Client.init(next);
         }
     ], (err) => {
-        console.log(err);
+        log.error(err);
         next();
     });
 });
