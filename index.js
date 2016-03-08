@@ -30,7 +30,11 @@ async.forever((next) => {
             });
         },
         (next) => {
-            Client.init(next);
+            Client.init((err) => {
+                if(err) return next(err);
+                log.info('初始化程序成功,NickName:' + Client.User.NickName);
+                next();
+            });
         }
     ], (err) => {
         log.error(err);
