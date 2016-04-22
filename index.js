@@ -32,7 +32,27 @@ async.forever((next) => {
         (next) => {
             Client.init((err) => {
                 if(err) return next(err);
-                log.info('初始化程序成功,NickName:' + Client.User.NickName);
+                log.info('初始化程序成功,Nickme:' + Client.User.NickName + ',开始开启微信状态通知');
+                next();
+            });
+        },
+        (next) => {
+            Client.statusNotify((err) => {
+                if(err) return next(err);
+                log.info('开启微信状态通知成功,开始获取用户信息');
+             next();
+            });
+        },
+        (next) => {
+            Client.loadUser((err) => {
+                if(err) return next(err);
+                log.info('获取用户信息成功,用户数量:' + Client.users.length);
+                next();
+            });
+        },
+        (next) => {
+            Client.syncCheck((err) => {
+                if(err) return next(err);
                 next();
             });
         }

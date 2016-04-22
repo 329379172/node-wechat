@@ -7,7 +7,8 @@ var config = {
     loginUrl: 'https://login.weixin.qq.com/cgi-bin/mmwebwx-bin/login?loginicon=true&r=' + ~Date.now() + '&_='
                 + Date.now() + '&',
     retryTimes: 5,
-    initUrl: 'https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxinit'
+    usersUrl: 'https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxgetcontact',
+    webpush_url: "https://webpush.weixin.qq.com/cgi-bin/mmwebwx-bin"
 };
 
 module.exports = config;
