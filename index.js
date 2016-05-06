@@ -5,7 +5,9 @@
 var Client = require('./lib/Client');
 var async = require('async');
 var log = require('./lib/log');
-
+var dockerPlugin = require('./lib/plugin/Docker');
+Client.plugins = Client.plugins || [];
+Client.plugins.push(dockerPlugin);
 async.forever((next) => {
     async.waterfall([
         (next) => {
@@ -23,7 +25,7 @@ async.forever((next) => {
             });
         },
         (next) => {
-            Client.cookie((err) => {
+            Client.getCookie((err) => {
                 if (err) return next(err);
                 log.info('登录成功,开始初始化程序...');
                 next();
