@@ -8,7 +8,10 @@ var config = {
                 + Date.now() + '&',
     retryTimes: 5,
     usersUrl: 'https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxgetcontact',
-    webpush_url: "https://webpush.weixin.qq.com/cgi-bin/mmwebwx-bin"
+    webpush_url: "https://webpush.weixin.qq.com/cgi-bin/mmwebwx-bin",
+
+    baseUploadUrl: "https://file2.wx.qq.com/cgi-bin/mmwebwx-bin",
+    webWxUploadMedia: "/webwxuploadmedia"
 };
 
 module.exports = config;
