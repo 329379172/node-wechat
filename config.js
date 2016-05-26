@@ -10,8 +10,9 @@ var config = {
     usersUrl: 'https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxgetcontact',
     webpush_url: "https://webpush.weixin.qq.com/cgi-bin/mmwebwx-bin",
 
-    baseUploadUrl: "https://file2.wx.qq.com/cgi-bin/mmwebwx-bin",
-    webWxUploadMedia: "/webwxuploadmedia"
+    baseUploadUrl: "https://file.wx.qq.com/cgi-bin/mmwebwx-bin",
+    webWxUploadMedia: "/webwxuploadmedia",
+    webwxsendmsgimg: "/webwxsendmsgimg"
 };
 
 module.exports = config;
